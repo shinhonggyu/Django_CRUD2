@@ -31,3 +31,19 @@ def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     return render(request, 'crud2/post_detail.html', {
         'post': post,
     })
+
+
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save()
+            return redirect(post)
+
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'crud2/post_form.html', {
+        'form': form,
+    })
