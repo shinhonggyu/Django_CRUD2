@@ -12,7 +12,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('crud2:post_list')
+        return reverse('crud2:post_detail', args=[self.pk])
 
     class Meta:
         ordering = ['-id']

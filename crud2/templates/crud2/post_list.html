@@ -1,15 +1,27 @@
-<div class='main'>
-<h1>Post List</h1>
 
-    <a href="{% url 'crud2:post_new' %}">
-        새 포스팅
-    </a><hr/>
 
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <h1>Post List</h1>
+
+        <a href="{% url 'crud2:post_new' %}" class="btn btn-info">
+            새 포스팅
+        </a><hr/>
+</head>
+<body class='main'>
     {% for post in post_list %}
-        <h2>{{ post.title }}</h2>
+        {{ post.pk }}
+        <h2><a href="{{ post.get_absolute_url }}">
+            {{ post.title }}
+        </a></h2>
         {{ post.description }}
         <hr/>
 
     {% endfor %}
     &copy; Shin
-</div>
+</body>
+</html>
+
