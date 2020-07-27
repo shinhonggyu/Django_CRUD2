@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest, HttpResponse
 from django.urls import reverse
 from .models import Post
@@ -7,10 +7,10 @@ from .forms import PostForm
 
 def post_new(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-
+            post = form.save()
+            return redirect(post)
     else:
         form = PostForm()
 
