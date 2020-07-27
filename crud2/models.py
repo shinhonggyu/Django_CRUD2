@@ -13,3 +13,6 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('crud2:post_list')
+
+    class Meta:
+        ordering = ['-id']
