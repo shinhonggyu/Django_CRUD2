@@ -1,10 +1,20 @@
 <div class='main'>
 <h1>Post List</h1>
-    {% for post in post_list %}
 
+    <a href="{% url 'crud2:post_new' %}">
+        새 포스팅
+    </a><hr/>
+
+    {% for post in post_list %}
+        <td>
+            {{ post.pk }}
+        </td>
+        <td>
         <h2>{{ post.title }}</h2>
         {{ post.description }}
         <hr/>
+        </td>
 
     {% endfor %}
+    &copy; Shin
 </div>
