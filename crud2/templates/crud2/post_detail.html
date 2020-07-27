@@ -15,6 +15,6 @@
 <a href="{% url 'crud2:post_edit' post.pk %}" class="btn btn-info">
     수정
 </a>
-<a href="" class="btn btn-danger">
+<a href="{% url 'crud2:post_delete' post.pk %}" class="btn btn-danger">
     삭제
 </a>

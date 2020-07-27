@@ -47,3 +47,13 @@ def post_edit(request, pk):
     return render(request, 'crud2/post_form.html', {
         'form': form,
     })
+
+
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('crud2:post_list')
+    return render(request, 'crud2/post_confirm_delete.html', {
+        'post': post,
+    })

@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <div class="alert alert-danger">
+        정말 삭제하시겠습니까?
+    </div>
+
+    <a href="{{ post.get_absolute_url }}" class="btn btn-secondary" >
+        내용보기
+    </a>
+    <input type="submit" value="삭제하겠습니다." class="btn btn-danger" />
+    
+</form>
