@@ -15,3 +15,10 @@ def post_new(request):
     return render(request, 'crud2/post_form.html', {
         'form': form,
     })
+
+
+def post_list(request):
+    qs = Post.objects.all()  # QuerySet
+    return render(request, 'crud2/post_list.html', {
+        'post_list': qs,
+    })
